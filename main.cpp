@@ -25,8 +25,9 @@
 
 
 
-static const char* SERVER_ADDR = "127.0.0.1";
-static const unsigned int SERVER_PORT = 1234;
+// static const char* SERVER_ADDR = "127.0.0.1";
+static const char* SERVER_ADDR = "3.121.212.15";
+static const unsigned int SERVER_PORT = 12345;
 
 static const int STD_IN = 0;
 static const int STD_OUT = 1;
