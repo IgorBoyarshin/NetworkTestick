@@ -1,5 +1,5 @@
 #!/usr/bin/zsh
 
 make
-./main
+./speed_test
 make clean

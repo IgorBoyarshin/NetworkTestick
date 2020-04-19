@@ -22,6 +22,7 @@
 #include <optional>
 #include <vector>
 #include <algorithm>
+#include <chrono>
 
 
 
@@ -96,10 +97,17 @@ void asClient() {
     // ================ Do stuff ==============================
     // ========================================================
 
+    const auto start = std::chrono::steady_clock::now();
+
     const unsigned int DATA_SIZE = 64;
     char data[DATA_SIZE];
     send(socketHandle, data, DATA_SIZE, 0);
     recv(socketHandle, data, DATA_SIZE, 0);
+
+    const auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(
+            std::chrono::steady_clock::now() - start
+    ).count();
+    std::cout << "Elapsed = " << elapsed << '\n';
 
     close(socketHandle);
 
@@ -159,10 +167,17 @@ void asServer() {
         return;
     }
 
+    const auto start = std::chrono::steady_clock::now();
+
     const unsigned int DATA_SIZE = 64;
     char data[DATA_SIZE];
     recv(newSocketHandle, data, DATA_SIZE, 0);
     send(newSocketHandle, data, DATA_SIZE, 0);
+
+    const auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(
+            std::chrono::steady_clock::now() - start
+    ).count();
+    std::cout << "Elapsed = " << elapsed << '\n';
 
     close(newSocketHandle);
     close(listenSocketHandle);
