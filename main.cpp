@@ -171,7 +171,7 @@ void asClient(std::string_view nickname) {
             if (hasData(STD_IN)) {
                 needUpdate = true;
                 char c;
-                read(0, &c, 1);
+                read(STD_IN, &c, 1);
                 if (c == '.') {
                     send(socketHandle, "...", 3, 0); // mark for end for servert
                     kill(pid, SIGKILL); // finish shild

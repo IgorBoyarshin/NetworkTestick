@@ -1,11 +1,11 @@
 # The name of the main file and executable
-mainFileName = main
+mainFileName = speed_test
 # Files that have .h and .cpp versions
 classFiles =
 # Files that only have the .h version
 justHeaderFiles =
 # Compilation flags
-OPTIMIZATION_FLAG = -O0
+OPTIMIZATION_FLAG = -O2
 LANGUAGE_LEVEL = -std=c++17
 COMPILER_FLAGS = -Wall -Wextra -Wno-unused-parameter
 LINKER_FLAGS =
